@@ -22,4 +22,4 @@ console.log(add("1"), "output should be 1");
 console.log(add("1,2,3"), "Output should be 6");
 console.log(add("1\n2,3"), "Output should be 6");
 console.log(add("//;\n1;2", "Output should be 3"));
-console.log(add("1,2,3,-1,-2,4,5,-5"), "Output should be 6");
+console.log(add("1,2,3,-1,-2,4,5,-5"), "Error");
