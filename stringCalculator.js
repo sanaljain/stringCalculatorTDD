@@ -1,7 +1,9 @@
 function add(numbers) {
   if (numbers === "") return 0;
-  return parseInt(numbers);
+  let tempNumbers = numbers.split(",");
+  return tempNumbers.reduce((sum, num) => sum + parseInt(num), 0);
 }
 
 console.log(add(""), "Output should be 0");
 console.log(add("1"), "output should be 1");
+console.log(add("1,2,3"), "Output should be 6");
