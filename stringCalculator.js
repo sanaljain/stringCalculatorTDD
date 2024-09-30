@@ -7,8 +7,8 @@ function add(numbers) {
 
   let delimiter = /[\n,]/;
   if (numbers.startsWith("//")) {
-    let singleTempDelimiter = numbers.match(/\/\/(.)\n/);
-    let tempDelimiter = numbers.match(/\/\/\[(.+?)\]\n/);
+    let singleTempDelimiter = numbers.match(/\/\/(.)\n/); //if single delimiter is there
+    let tempDelimiter = numbers.match(/\/\/\[(.+?)\]\n/); // if multiple delimiter are there
     if (singleTempDelimiter) {
       delimiter = new RegExp(escapeRegExp(singleTempDelimiter[1]));
       numbers = numbers.split("\n")[1];
@@ -20,7 +20,7 @@ function add(numbers) {
     }
   }
   let tempNumbers = numbers.split(delimiter);
-  let negativeNumbers = tempNumbers.filter((num) => parseInt(num) < 0);
+  let negativeNumbers = tempNumbers.filter((num) => parseInt(num) < 0); // check for negetive numbers
   if (negativeNumbers.length > 0) {
     throw new Error(
       `negative numbers not allowed: ${negativeNumbers.join(", ")}`
@@ -28,7 +28,7 @@ function add(numbers) {
   }
   return tempNumbers.reduce((sum, num) => {
     let temp = parseInt(num);
-    return temp > 1000 ? sum : sum + temp;
+    return temp > 1000 ? sum : sum + temp; //if any number is greater than 1000
   }, 0);
 }
 
